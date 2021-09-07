@@ -2,7 +2,6 @@ module Main where
 
 
 --- Pregunta 1 - Find the Duplicate Number - https://leetcode.com/problems/find-the-duplicate-number/
---- https://www.utnianos.com.ar/foro/tema-haskell-obtener-elementos-repetidos
 
 numerosRepetidos :: Eq a => [a] -> [a]
 numerosRepetidos x | null x = []

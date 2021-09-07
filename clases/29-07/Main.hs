@@ -22,8 +22,26 @@ linea2 = linea m a b
         a = 1
         b = 5
 
+linea3 = linea m a b
+    where
+        m = 7 % 1
+        a = 1
+        b = 9
+
 lineaCompuesta x =
-    (if x >= 0 then linea1 x else linea2 x) + 23
+    if x >= 0
+    then linea1 x
+    else if x < 20
+    then linea2 x
+    else linea3 x
+
+lineaCompuesta' x
+    | x >= 0 = linea1 x
+    | x < 20 = linea2 x
+    | otherwise = linea3 x
+
+puntosLineaCompuesta inicio fin =
+    [lineaCompuesta x | x <- [inicio .. fin]]
 
 main :: IO ()
 main = putStrLn "Hello, Haskell!"

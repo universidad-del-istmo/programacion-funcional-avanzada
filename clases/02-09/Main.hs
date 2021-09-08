@@ -30,7 +30,7 @@ fold fCons fNil (x : xs) = fCons (fold fCons fNil xs) x
 -- = fold agg vacio [1,2]
 -- | fold: fCons = agg, fNil = vacio, x = 1, xs = [2]
 -- = fCons (fold fCons fNil xs) x [fCons/agg, fNil/vacio, x/1, xs/2]
--- = agg (fold agg vacio [2]) 1
+-- = agg (fold agg vacio [2]) 1 
 -- | | fold: fCons = agg, fNil = vacio, x = 2, xs = []
 -- = agg (fCons (fold fCons fNil xs [fCons/agg, fNil/vacio, x/2, xs/[]]) x ) 1
 -- = agg (agg (fold agg vacio []) 2) 1
@@ -44,7 +44,12 @@ fold fCons fNil (x : xs) = fCons (fold fCons fNil xs) x
 -- - agg 1 1
 contar' xs = fold agg vacio xs
     where
-        agg estado x = estado + 1
+        agg estado x = 1 + estado
+        vacio = 0
+
+sumar' xs = fold agg vacio xs
+    where
+        agg estado x = estado + x
         vacio = 0
 
 -- Tarea: implementar "sum" utilizanjdo fold

@@ -29,7 +29,10 @@ a + (Succ b) = Succ (a + b)
 
 -- Ejercicio: Implementar la multiplicacion
 -- de numeros naturales.
-a * b = undefined
+Cero * b = Cero
+a * Cero = Cero
+a * (Succ Cero) = a
+a * (Succ (Succ Cero)) = a + a
 
 Cero > _ = False
 _ > Cero = True
@@ -38,5 +41,13 @@ Succ a > Succ b = a > b
 -- Ejercicio: Implementar el operador
 -- "menor que" para numeros naturales.
 a < b = undefined
+
+-- Ejercico: Implementar el tipo "semaforo"
+-- y la funcion "cambiar" que actualiza
+-- el color del semaforo.
+data Semaforo
+
+cambiar :: Semaforo -> Semaforo
+cambiar = undefined
 
 main = undefined

@@ -52,5 +52,19 @@ safeHead (x : _) = Some x
 safeDiv x 0 = None
 safeDiv x y = Some (x / y)
 
+-- Ejercicio
+-- Definan un typeclass llamada "Diccionario",
+-- este typeclass es para tipos de valores
+-- que tienen valores internos que pueden ser
+-- accesados por una palabra como indice.
+-- Tambien crear tres instancias de este typeclass:
+-- (1) [(String, a)]
+-- (2) Json, solo cuando es un JObject, retornar nothing si
+--     no es un JObject
+-- (3) Para todo objeto que se puede convertir a Json
+-- get "key" [("a", 5), ("b", 6), ("key", 7)] => Just 7
+-- get "noExiste" [("a", 5), ("b", 6), ("key", 7)] => Nothing
+
+
 main :: IO ()
 main = putStrLn "Hello, Haskell!"

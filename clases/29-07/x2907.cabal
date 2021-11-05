@@ -18,7 +18,7 @@ extra-source-files:  CHANGELOG.md
 
 executable x2907
   main-is:             Main.hs
-  other-modules:       Neto.Ejercicios
+  -- other-modules:
   -- other-extensions:
   build-depends:       base >=4.13 && <4.14
   -- hs-source-dirs:

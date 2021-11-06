@@ -1,5 +1,5 @@
 cabal-version:      2.4
-name:               x0909
+name:               x0819
 version:            0.1.0.0
 
 -- A short (one-line) description of the package.
@@ -21,7 +21,7 @@ maintainer:         <rodas171315@unis.edu.gt>
 -- category:
 extra-source-files: CHANGELOG.md
 
-executable x0909
+executable x0819
     main-is:          Main.hs
 
     -- Modules included in this executable, other than Main.

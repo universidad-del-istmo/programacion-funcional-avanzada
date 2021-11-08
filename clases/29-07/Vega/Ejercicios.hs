@@ -1,3 +1,5 @@
 -- Nombre: Juan Diego Vega
 
--- module Neto.Ejercicios where
+module Vega.Ejercicios where
+
+volcan11 x = x + 2

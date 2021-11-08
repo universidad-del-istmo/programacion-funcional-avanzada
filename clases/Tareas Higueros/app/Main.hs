@@ -130,6 +130,34 @@ _ < Cero = False
 (Succ a) < (Succ b) = a < b
 
 -- 2 ejerci - 30-09-2021
+-- Ejercicio
+-- Definan un typeclass llamada "Diccionario",
+-- este typeclass es para tipos de valores
+-- que tienen valores internos que pueden ser
+-- accesados por una palabra como indice.
+-- Tambien crear tres instancias de este typeclass:
+-- (1) [(String, a)]
+-- (2) Json, solo cuando es un JObject, retornar nothing si
+--     no es un JObject
+-- (3) Para todo objeto que se puede convertir a Json
+-- get "key" [("a", 5), ("b", 6), ("key", 7)] => Just 7
+-- get "noExiste" [("a", 5), ("b", 6), ("key", 7)] => Nothing
+
+-- declre type calass Diccionario
+class Diccionario a where
+    get :: String -> a -> Option a
+
+-- implement type class Diccionario to Json
+instance Diccionario Json where
+    get key (JObject xs) =
+        case lookup key xs of
+            Nothing -> None
+            Just x -> Some x
+    get _ _ = None
+
+-- implement type class Diccionario to [(String, a)]
+instance Diccionario [(String, a)] where
+    get key xs = forall xs. (key == fst x) => Some (snd x)
 
 -- 2 ejerci - 17-09-2021
 
@@ -171,6 +199,39 @@ dropImpl (x:xs) n = dropImpl xs (n - 1)
 miDrop n lista = dropImpl lista n
 
 -- 2 ejerci - 23-09-2021
+-- Ejercicio:
+-- Implementar la funcion "depth" para Json. Esta funcion
+-- determina que tan profundo esta el valor mas profundo en
+-- un json.
+-- Ejemplo:
+-- existe'' JProps [("nombre", JString "yo"), ("organizacion", JProps [("nombre", JString "unis"), ("lugar", JArray [JProps ("ciudad", JString "fraijanes")])])] == 3
+depht :: Json -> Int
+depht (JString _) = 0
+depht (JNumber _) = 0
+depht (JBool _) = 0
+depth (JNull) = 0
+depth (JArray js) = 1 + maximum (map depht js)
+depth (JProps js) = 1 + maximum (map (depht . snd) js)
+
+
+-- Ejercicio:
+-- Escriba la funcion "parseJson" en Haskell que toma
+-- un String y produce un valor de tipo Json si el String
+-- es un Json valido.
+-- Ejemplo:
+-- parseJson "{ \"nombre\": \"yo\", \"organizacion\": {\"nombre\": \"unis\", \"lugares\": [{\"ciudad\": \"GT\"}, \"fraijanes\"]}}"
+-- == JProps [("nombre",JString "yo"),("organizacion",JProps [("nombre",JString "unis"),("lugares",JArray [JProps [("ciudad",JString "GT")],JString "fraijanes"])])]
+
+parseJson' :: String -> Json
+parseJson' s = foldJson fString fInt fBool fNull fArray fProps (JString s)
+    where
+        fString s = JString s
+        fInt i = JNumber i
+        fBool b = JBool b
+        fNull = JNull
+        fArray = JArray
+        fProps = JProps
+
 -- 1 ejerci - 28-09-2021
 
 -- Ejercicio:

@@ -19,6 +19,7 @@ extra-source-files:  CHANGELOG.md
 executable x2309
   main-is:             Main.hs
   -- other-modules:
+  other-modules:       Vega.Ejercicios
   -- other-extensions:
   build-depends:       base ^>=4.15.0.0
   -- hs-source-dirs:

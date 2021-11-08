@@ -70,7 +70,7 @@ existe'' query xs = foldl' fCons False xs
 -- determina que tan profundo esta el valor mas profundo en
 -- un json.
 -- Ejemplo:
--- existe'' JProps [("nombre", JString "yo"), ("organizacion", JProps [("nombre", JString "unis"), ("lugar", JArray [JProps ("ciudad", JString "fraijanes")])])] == 3
+-- existe'' JProps [("nombre", JString "yo"), ("organizacion", JProps [("nombre", JString "unis"), ("lugar", JProps [("ciudad", JString "fraijanes")])])] == 3
 depht = undefined
 
 -- Ejercicio:

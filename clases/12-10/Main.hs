@@ -17,8 +17,7 @@ fmapIO = fmap
 -- tipo (Float, Float) y calcular
 -- la distancia euclideana entre las
 -- dos parejas
-distancia :: IO Float
-distancia = undefined
+
 
 -- Ejercicio:
 -- Leer parejas ordenadas de float
@@ -26,7 +25,6 @@ distancia = undefined
 -- distancia de la linea formada
 -- por las parejas que fueron leidas
 -- de la terminal
-longitud :: IO Float
 
 sumatoria' = do
     s <- getLine

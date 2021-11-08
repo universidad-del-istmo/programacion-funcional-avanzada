@@ -2,7 +2,7 @@
 module Main where
 import Data.Ratio ((%))
 import Control.Monad (forM, forM_)
--- import Prelude (Read(..), Show(..), read, undefined, Int, IO, Integer, Num, putStrLn, mod, (==), (&&), (+), (-), Bool(True), Bool(False), (||), foldl, (++), map, (*), (<), (>))
+import Prelude (Read(..), Show(..), read, undefined, Int, IO, Integer, Num, putStrLn, mod, (==), (&&), (+), (-), Bool(True), Bool(False), (||), foldl, (++), map, (*), (<), (>))
 
 main :: IO ()
 main = putStrLn "Hello, Haskell!"
@@ -105,29 +105,29 @@ adjuntar (y:ys) x = x : (y:ys)
 -- En otras palabras (4 % 5) o 4/5 es equivalente a Frac 4 5.
 -- Su tarea es volver el tipo Fraction una instancia de Num
 
--- data Fraction = Frac Integer Integer deriving Show
+data Fraction = Frac Integer Integer deriving Show
 
--- instance {-# OVERLAPS #-} Num Fraction where
+instance {-# OVERLAPS #-} Num Fraction where
 
--- fractionImpl numerador denominador = Frac numerador denominador
+fractionImpl numerador denominador = Frac numerador denominador
 
 -- 3 ejerci - 16-09-2021
 
--- data Natural = Cero | Succ Natural deriving Show
+data Natural = Cero | Succ Natural deriving Show
 
 -- Ejercicio: Implementar la multiplicacion
 -- de numeros naturales.
 
--- Cero + a = a
--- a + Cero = a
--- a + (Succ b) = Succ (a + b)
+Cero + a = a
+a + Cero = a
+a + (Succ b) = Succ (a + b)
 
 -- Ejercicio: Implementar el operador
 -- "menor que" para numeros naturales.
 
--- Cero < _ = False 
--- _ < Cero = False
--- (Succ a) < (Succ b) = a < b
+Cero < _ = False 
+_ < Cero = False
+(Succ a) < (Succ b) = a < b
 
 -- 2 ejerci - 30-09-2021
 
@@ -292,7 +292,5 @@ digitosANumeros' xs = foldl 1 xs'
         xs' = reverse xs
         foldl estado [] = 0
         fCons estado x = (estado * 10) + x
-
-
 
 

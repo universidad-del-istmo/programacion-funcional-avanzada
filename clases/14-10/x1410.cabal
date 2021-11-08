@@ -18,8 +18,8 @@ extra-source-files:  CHANGELOG.md
 
 executable x1410
   main-is:             Main.hs
-  -- other-modules:
+  other-modules:       Javier.Ejercicios
   -- other-extensions:
-  build-depends:       base >=4.13 && <4.14
+  build-depends:       base >=4.13 && <4.16
   -- hs-source-dirs:
   default-language:    Haskell2010

@@ -2,24 +2,24 @@ module Main where
 
 import Control.Monad (forM)
 
-data Opcion a = Hay a | NoHay deriving Show
+data Opcion a = Hay a | NoHay String deriving Show
 
 instance Functor Opcion where
     fmap f (Hay a) = Hay (f a)
-    fmap _ NoHay = NoHay
+    fmap _ (NoHay a) = NoHay a
 
 instance Applicative Opcion where
     pure = Hay
     (Hay f) <*> (Hay v) = Hay (f v)
-    _ <*> _ = NoHay
+    _ <*> _ = NoHay "Error"
 
 instance Monad Opcion where
     return = Hay
     (Hay a) >>= f = f a
-    NoHay >>= _ = NoHay
+    NoHay a >>= _ = NoHay a
 
 instance MonadFail Opcion where
-    fail _ = NoHay
+    fail = NoHay
 
 -- instance Monad Opcion where
 

@@ -44,3 +44,9 @@ Succ a < Succ b = a < b
 -- y la funcion "cambiar" que actualiza
 -- el color del semaforo.
 
+data Semaforo = Red | Yellow | Green deriving Show
+
+cambiar :: Semaforo -> Semaforo
+cambiar Green = Yellow
+cambiar Yellow = Red
+cambiar Red = Green
